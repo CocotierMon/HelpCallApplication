@@ -1,11 +1,11 @@
 package com.helpcall.HelpCallApp.domain;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotNull;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

@@ -19,14 +19,11 @@ public class Volunteer{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonProperty("vol_id")
     private Long id;
 
-    @JsonProperty("vol_name")
     @Column(name = "name")
     private String name;
 
-    @JsonProperty("vol_email")
     @Column(name = "email")
     private String email;
 

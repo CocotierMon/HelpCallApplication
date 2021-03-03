@@ -1,5 +1,6 @@
 package com.helpcall.HelpCallApp.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,13 +12,22 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NeedDto {
+
+    @JsonProperty("Id")
     private Long id;
+    @JsonProperty("Title")
     private String title;
+    @JsonProperty("Description")
     private String description;
+    @JsonProperty("Location")
     private String location;
+    @JsonProperty("EndTime")
     private LocalDate endTime;
+    @JsonProperty("Institution")
     private Institution institution;
+    @JsonProperty("Volunteers")
     private List<Volunteer> volunteers;
+    @JsonProperty("NeedsBoard")
     private NeedsBoard needsBoard;
 
     public NeedDto(Long id, String title, String description) {
