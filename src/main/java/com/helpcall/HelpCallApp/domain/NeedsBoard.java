@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -20,8 +19,11 @@ public class NeedsBoard {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany
-    private List<Need> needs = new ArrayList<>();
+    @Column(name = "title")
+    private String title;
+
+    @ManyToMany
+    private List<Need> needs;
 
     public NeedsBoard(Long id) {
         this.id = id;

@@ -27,8 +27,8 @@ public class NeedDto {
     private Institution institution;
     @JsonProperty("Volunteers")
     private List<Volunteer> volunteers;
-    @JsonProperty("NeedsBoard")
-    private NeedsBoard needsBoard;
+    @JsonProperty("NeedsBoards")
+    private List<NeedsBoard> needsBoards;
 
     public NeedDto(Long id, String title, String description) {
         this.id = id;

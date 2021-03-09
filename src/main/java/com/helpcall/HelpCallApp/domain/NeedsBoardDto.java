@@ -15,6 +15,8 @@ public class NeedsBoardDto {
 
     @JsonProperty("Id")
     private Long id;
+    @JsonProperty("Title")
+    private String title;
     @JsonProperty("Needs")
     private List<Need> needs = new ArrayList<>();
 

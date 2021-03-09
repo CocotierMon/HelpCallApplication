@@ -40,9 +40,9 @@ public class Need {
     @JoinColumn(name = "volunteers")
     public List<Volunteer> volunteers;
 
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "needsboards")
-    public NeedsBoard needsBoard;
+    public List<NeedsBoard> needsBoards;
 
     public Need(Long id, String title, String description) {
         this.id = id;

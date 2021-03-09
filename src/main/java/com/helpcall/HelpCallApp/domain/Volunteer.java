@@ -1,6 +1,5 @@
 package com.helpcall.HelpCallApp.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +25,18 @@ public class Volunteer{
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
+    public String password;
+
+    @Column(name = "latitude")
+    public String lat;
+
+    @Column(name = "longitude")
+    public String lon;
+
+    @Column(name = "description")
+    public String description;
 
     @ManyToMany
     @JoinColumn(name = "needs")

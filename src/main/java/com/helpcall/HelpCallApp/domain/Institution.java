@@ -28,6 +28,21 @@ public class Institution{
     @Column(name = "email")
     private String email;
 
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "latitude")
+    private String lat;
+
+    @Column(name = "longitude")
+    private String lon;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "isInstitution")
+    private Boolean isInstitution;
+
     @OneToMany(targetEntity = Need.class, mappedBy = "institution", fetch = FetchType.LAZY)
     private List<Need> needs = new ArrayList<>();
 

@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 public class NeedsBoardMapper {
 
     public NeedsBoard mapToNeedsBoard(final NeedsBoardDto needsBoardDto) {
-        return new NeedsBoard(needsBoardDto.getId(), needsBoardDto.getNeeds());
+        return new NeedsBoard(needsBoardDto.getId(), needsBoardDto.getTitle(), needsBoardDto.getNeeds());
     }
 
     public NeedsBoardDto mapToNeedsBoardsDto(final NeedsBoard needsBoard) {
-        return new NeedsBoardDto(needsBoard.getId(), needsBoard.getNeeds());
+        return new NeedsBoardDto(needsBoard.getId(), needsBoard.getTitle(), needsBoard.getNeeds());
     }
 }

@@ -14,13 +14,23 @@ import java.util.List;
 public class InstitutionDto {
 
     @JsonProperty("Id")
-    private Long id;
+    public Long id;
     @JsonProperty("Name")
-    private String name;
+    public String name;
     @JsonProperty("Email")
-    private String email;
+    public String email;
+    @JsonProperty("Password")
+    public String password;
+    @JsonProperty("Latitude")
+    public String lat;
+    @JsonProperty("Longitude")
+    public String lon;
+    @JsonProperty("Description")
+    public String description;
+    @JsonProperty("IsInstitution")
+    public Boolean isInstitution;
     @JsonProperty("Needs")
-    private List<Need> needs = new ArrayList<>();
+    public List<Need> needs = new ArrayList<>();
 
     public InstitutionDto(Long id, String name, String email) {
         this.id = id;
