@@ -1,5 +1,6 @@
 package com.helpcall.HelpCallApp.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,8 +27,11 @@ public class Need {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "location")
-    private String location;
+    @Column(name = "latitude")
+    public String lat;
+
+    @Column(name = "longitude")
+    public String lon;
 
     @Column(name = "end_time")
     private LocalDate endTime;

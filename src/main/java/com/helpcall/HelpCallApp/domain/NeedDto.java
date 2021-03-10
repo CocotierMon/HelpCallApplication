@@ -19,8 +19,10 @@ public class NeedDto {
     private String title;
     @JsonProperty("Description")
     private String description;
-    @JsonProperty("Location")
-    private String location;
+    @JsonProperty("Latitude")
+    public String lat;
+    @JsonProperty("Longitude")
+    public String lon;
     @JsonProperty("EndTime")
     private LocalDate endTime;
     @JsonProperty("Institution")

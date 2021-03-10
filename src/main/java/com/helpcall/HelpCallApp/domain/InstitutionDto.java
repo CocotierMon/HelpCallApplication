@@ -28,7 +28,7 @@ public class InstitutionDto {
     @JsonProperty("Description")
     public String description;
     @JsonProperty("IsInstitution")
-    public Boolean isInstitution;
+    public String isInstitution;
     @JsonProperty("Needs")
     public List<Need> needs = new ArrayList<>();
 

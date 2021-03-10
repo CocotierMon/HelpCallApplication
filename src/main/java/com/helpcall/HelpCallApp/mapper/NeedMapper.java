@@ -12,13 +12,13 @@ public class NeedMapper {
 
     public Need mapToNeed(final NeedDto needDto) {
         return new Need(needDto.getId(), needDto.getTitle(), needDto.getDescription(),
-                needDto.getLocation(), needDto.getEndTime(), needDto.getInstitution(),
+                needDto.getLat(), needDto.getLon(), needDto.getEndTime(), needDto.getInstitution(),
                 needDto.getVolunteers(), needDto.getNeedsBoards());
     }
 
     public NeedDto mapToNeedDto(final Need need) {
         return new NeedDto(need.getId(), need.getTitle(), need.getDescription(),
-                need.getLocation(), need.getEndTime(), need.getInstitution(),
+                need.getLat(), need.getLon(), need.getEndTime(), need.getInstitution(),
                 need.getVolunteers(), need.getNeedsBoards());
     }
 
@@ -26,7 +26,7 @@ public class NeedMapper {
         return needDtoList.stream()
                 .map(needDto -> new Need(
                         needDto.getId(), needDto.getTitle(), needDto.getDescription(),
-                        needDto.getLocation(), needDto.getEndTime(), needDto.getInstitution(),
+                        needDto.getLat(), needDto.getLon(), needDto.getEndTime(), needDto.getInstitution(),
                         needDto.getVolunteers(), needDto.getNeedsBoards()
                 ))
                 .collect(Collectors.toList());
@@ -35,7 +35,7 @@ public class NeedMapper {
     public List<NeedDto> mapToNeedListDto(List<Need> needList) {
         return needList.stream()
                 .map(need -> new NeedDto(need.getId(), need.getTitle(), need.getDescription(),
-                        need.getLocation(), need.getEndTime(), need.getInstitution(),
+                        need.getLat(), need.getLon(), need.getEndTime(), need.getInstitution(),
                         need.getVolunteers(), need.getNeedsBoards()))
                 .collect(Collectors.toList());
     }

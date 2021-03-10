@@ -22,7 +22,6 @@ public class InstitutionController {
     @Autowired
     private InstitutionMapper institutionMapper;
 
-    @Secured({"ROLE_INSTITUTION", "ROLE_ADMIN"})
     @RequestMapping(method = RequestMethod.POST, value = "/institutions", consumes = APPLICATION_JSON_VALUE)
     public void createInstitution(@RequestBody InstitutionDto institutionDto) {
         institutionDbService.saveInstitution(institutionMapper.mapToInstitution(institutionDto));

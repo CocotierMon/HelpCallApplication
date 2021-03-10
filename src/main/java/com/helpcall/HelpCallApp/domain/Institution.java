@@ -41,7 +41,7 @@ public class Institution{
     private String description;
 
     @Column(name = "isInstitution")
-    private Boolean isInstitution;
+    private String isInstitution;
 
     @OneToMany(targetEntity = Need.class, mappedBy = "institution", fetch = FetchType.LAZY)
     private List<Need> needs = new ArrayList<>();
