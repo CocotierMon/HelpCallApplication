@@ -11,23 +11,30 @@ import java.util.stream.Collectors;
 public class VolunteerMapper {
 
     public Volunteer mapToVolunteer(final VolunteerDto volunteerDto) {
-        return new Volunteer(volunteerDto.getId(), volunteerDto.getName(), volunteerDto.getEmail());
+        return new Volunteer(volunteerDto.getId(), volunteerDto.getName(), volunteerDto.getEmail(),
+                volunteerDto.getPassword(), volunteerDto.getLat(), volunteerDto.getLon(), volunteerDto.getDescription(),
+                volunteerDto.getNeeds());
     }
 
     public VolunteerDto mapToVolunteerDto(final Volunteer volunteer) {
-        return new VolunteerDto(volunteer.getId(), volunteer.getName(), volunteer.getEmail());
+        return new VolunteerDto(volunteer.getId(), volunteer.getName(), volunteer.getEmail(),
+                volunteer.getPassword(), volunteer.getLat(), volunteer.getLon(), volunteer.getDescription(),
+                volunteer.getNeeds());
     }
 
     public List<Volunteer> mapToVolunteerList(List<VolunteerDto> volunteerDtoList) {
         return volunteerDtoList.stream()
-                .map(volunteer -> new Volunteer(volunteer.getId(), volunteer.getName(), volunteer.getEmail()))
+                .map(volunteer -> new Volunteer(volunteer.getId(), volunteer.getName(), volunteer.getEmail(),
+                        volunteer.getPassword(), volunteer.getLat(), volunteer.getLon(), volunteer.getDescription(),
+                        volunteer.getNeeds()))
                 .collect(Collectors.toList());
     }
 
     public List<VolunteerDto> mapToVolunteerDtoList(List<Volunteer> volunteerList) {
         return volunteerList.stream()
-                .map(volunteerDto -> new VolunteerDto(volunteerDto.getId(), volunteerDto.getName(),
-                        volunteerDto.getEmail()))
+                .map(volunteerDto -> new VolunteerDto(volunteerDto.getId(), volunteerDto.getName(), volunteerDto.getEmail(),
+                        volunteerDto.getPassword(), volunteerDto.getLat(), volunteerDto.getLon(), volunteerDto.getDescription(),
+                        volunteerDto.getNeeds()))
                 .collect(Collectors.toList());
     }
 }

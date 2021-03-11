@@ -12,7 +12,6 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonPropertyOrder({"Name", "Email", "Needs"})
 public class VolunteerDto {
 
     @JsonProperty("Id")
@@ -30,7 +29,7 @@ public class VolunteerDto {
     @JsonProperty("Description")
     public String description;
     @JsonProperty("Needs")
-    public List<NeedDto> needs = new ArrayList<>();
+    public List<Need> needs = new ArrayList<>();
 
     public VolunteerDto(Long id, String name, String email) {
         this.id = id;
