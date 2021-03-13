@@ -10,12 +10,8 @@ import java.util.Optional;
 @Service
 public class NeedsBoardDbService {
 
-    private NeedsBoardRepository needsBoardRepository;
-
     @Autowired
-    public NeedsBoardDbService(NeedsBoardRepository needsBoardRepository) {
-        this.needsBoardRepository = needsBoardRepository;
-    }
+    private NeedsBoardRepository needsBoardRepository;
 
     public NeedsBoard saveNeedsBoard(final NeedsBoard needsBoard) {
         return needsBoardRepository.save(needsBoard);

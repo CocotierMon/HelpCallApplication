@@ -20,27 +20,27 @@ public class NeedsBoardController {
     @Autowired
     private NeedsBoardMapper needsBoardMapper;
 
-    @Secured({"ROLE_ADMIN"})
+  //  @Secured({"ROLE_ADMIN"})
     @RequestMapping(method = RequestMethod.POST, value = "/needsBoards", consumes = APPLICATION_JSON_VALUE)
     public void createNeedsBoard(@RequestBody NeedsBoardDto needsBoardDto) {
         needsBoardDbService.saveNeedsBoard(needsBoardMapper.mapToNeedsBoard(needsBoardDto));
     }
 
-    @Secured({"ROLE_ADMIN"})
+ //   @Secured({"ROLE_ADMIN"})
     @RequestMapping(method = RequestMethod.PUT, value = "/needsBoards")
     public NeedsBoardDto updateNeedsBoard(@RequestBody NeedsBoardDto needsBoardDto) {
         return needsBoardMapper.mapToNeedsBoardsDto(needsBoardDbService.saveNeedsBoard(
                 needsBoardMapper.mapToNeedsBoard(needsBoardDto)));
     }
 
-    @Secured({"ROLE_ADMIN"})
+   // @Secured({"ROLE_ADMIN"})
     @RequestMapping(method = RequestMethod.GET, value = "/needsBoards/{id}")
     public @ResponseBody NeedsBoardDto getNeedsBoard(@PathVariable("id") Long id) throws NeedBoardNotFoundException {
         return needsBoardMapper.mapToNeedsBoardsDto(needsBoardDbService.getNeedsBoard(id)
                 .orElseThrow(NeedBoardNotFoundException::new));
     }
 
-    @Secured({"ROLE_ADMIN"})
+  //  @Secured({"ROLE_ADMIN"})
     @RequestMapping(method = RequestMethod.DELETE, value = "/needsBoards/{id}")
     public void deleteNeedsBoardById(@PathVariable("id") Long id) {
         needsBoardDbService.deleteNeedsBoardsById(id);

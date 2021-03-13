@@ -11,12 +11,8 @@ import java.util.Optional;
 @Service
 public class InstitutionDbService {
 
-    private InstitutionRepository institutionRepository;
-
     @Autowired
-    public InstitutionDbService(InstitutionRepository institutionRepository) {
-        this.institutionRepository = institutionRepository;
-    }
+    private InstitutionRepository institutionRepository;
 
     public Institution saveInstitution(final Institution institution) {
         return institutionRepository.save(institution);

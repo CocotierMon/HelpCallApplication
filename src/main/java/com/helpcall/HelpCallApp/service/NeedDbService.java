@@ -11,12 +11,8 @@ import java.util.Optional;
 @Service
 public class NeedDbService {
 
-    private NeedRepository needRepository;
-
     @Autowired
-    public NeedDbService(NeedRepository needRepository) {
-        this.needRepository = needRepository;
-    }
+    private NeedRepository needRepository;
 
     public Need saveNeed(final Need need) {
         return needRepository.save(need);

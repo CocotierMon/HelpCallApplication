@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -14,23 +15,23 @@ import java.util.List;
 public class NeedDto {
 
     @JsonProperty("Id")
-    private Long id;
+    public Long id;
     @JsonProperty("Title")
-    private String title;
+    public String title;
     @JsonProperty("Description")
-    private String description;
+    public String description;
     @JsonProperty("Latitude")
     public String lat;
     @JsonProperty("Longitude")
     public String lon;
     @JsonProperty("EndTime")
-    private LocalDate endTime;
+    public LocalDate endTime;
     @JsonProperty("Institution")
-    private Institution institution;
+    public Institution institution;
     @JsonProperty("Volunteers")
-    private List<Volunteer> volunteers;
+    public List<Volunteer> volunteers = new ArrayList<>();
     @JsonProperty("NeedsBoards")
-    private List<NeedsBoard> needsBoards;
+    public List<NeedsBoard> needsBoards = new ArrayList<>();
 
     public NeedDto(Long id, String title, String description) {
         this.id = id;

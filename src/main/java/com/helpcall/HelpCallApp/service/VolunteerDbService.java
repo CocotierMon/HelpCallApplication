@@ -11,12 +11,8 @@ import java.util.Optional;
 @Service
 public class VolunteerDbService {
 
-    private VolunteerRepository volunteerRepository;
-
     @Autowired
-    public VolunteerDbService(VolunteerRepository volunteerRepository) {
-        this.volunteerRepository = volunteerRepository;
-    }
+    private VolunteerRepository volunteerRepository;
 
     public Volunteer saveVolunteer(final Volunteer volunteer) {
         return volunteerRepository.save(volunteer);

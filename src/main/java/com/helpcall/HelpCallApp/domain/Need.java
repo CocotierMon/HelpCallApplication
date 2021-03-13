@@ -1,6 +1,5 @@
 package com.helpcall.HelpCallApp.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -28,25 +28,25 @@ public class Need {
     private String description;
 
     @Column(name = "latitude")
-    public String lat;
+    private String lat;
 
     @Column(name = "longitude")
-    public String lon;
+    private String lon;
 
     @Column(name = "end_time")
     private LocalDate endTime;
 
     @ManyToOne
     @JoinColumn(name = "institution_id")
-    public Institution institution;
+    private Institution institution;
 
     @ManyToMany
     @JoinColumn(name = "volunteers")
-    public List<Volunteer> volunteers;
+    private List<Volunteer> volunteers = new ArrayList<>();
 
     @ManyToMany
     @JoinColumn(name = "needsboards")
-    public List<NeedsBoard> needsBoards;
+    private List<NeedsBoard> needsBoards = new ArrayList<>();
 
     public Need(Long id, String title, String description) {
         this.id = id;

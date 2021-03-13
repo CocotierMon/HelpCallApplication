@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "volunteers")
-public class Volunteer{
+public class Volunteer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,20 +27,20 @@ public class Volunteer{
     private String email;
 
     @Column(name = "password")
-    public String password;
+    private String password;
 
     @Column(name = "latitude")
-    public String lat;
+    private String lat;
 
     @Column(name = "longitude")
-    public String lon;
+    private String lon;
 
     @Column(name = "description")
-    public String description;
+    private String description;
 
     @ManyToMany
     @JoinColumn(name = "needs")
-    List<Need> needs = new ArrayList<>();
+    private List<Need> needs = new ArrayList<>();
 
     public Volunteer(Long id, String name, String email) {
         this.id = id;

@@ -5,23 +5,24 @@ import com.google.gson.Gson;
 import com.helpcall.HelpCallApp.domain.Need;
 import com.helpcall.HelpCallApp.domain.NeedDto;
 import com.helpcall.HelpCallApp.mapper.NeedMapper;
-import com.helpcall.HelpCallApp.repository.NeedRepository;
 import com.helpcall.HelpCallApp.service.NeedDbService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -29,29 +30,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @SpringBootTest
-@WithMockUser(username = "adm", password = "adm", roles = "ADMIN")
-@Transactional
+//@WithMockUser(username = "adm", password = "adm", roles = "ADMIN")
 public class NeedControllerTestSuite {
 
     @Autowired
     private MockMvc mockMvc;
     @Autowired
     private ObjectMapper objectMapper;
-    @Autowired
-    private NeedRepository needRepository;
-    @Autowired
+    @MockBean
     private NeedDbService service;
-    @Autowired
+    @MockBean
     private NeedMapper needMapper;
 
     @Test
-    @Transactional
     void shouldGetAllNeeds() throws Exception {
         //given
         Need need = new Need();
         need.setTitle("test1");
         need.setDescription("test1@test1");
-        needRepository.save(need);
+        service.saveNeed(need);
 
         //when
         MvcResult mvcResult = mockMvc.perform(get("/v1/needs"))
@@ -66,43 +63,38 @@ public class NeedControllerTestSuite {
     }
 
     @Test
-    @Transactional
     void shouldGetNeedById() throws Exception {
         //given
-        Need need = new Need();
-        need.setTitle("test2");
-        need.setDescription("test2@test2");
-        needRepository.save(need);
+        Need need = new Need(1L, "test2", "test2");
+        Long id = need.getId();
+        NeedDto needDto = new NeedDto(2L, "test22", "test22");
+        when(service.getNeed(id)).thenReturn(java.util.Optional.of(need));
+        when(needMapper.mapToNeedDto(need)).thenReturn(needDto);
 
-        //when
-        MvcResult mvcResult = mockMvc.perform(get("/v1/needs/" + need.getId())
+        service.saveNeed(need);
+
+        //when & then
+        mockMvc.perform(get("/v1/needs/" + need.getId())
                 .param("id", String.valueOf(need.getId())))
                 .andDo(print())
                 .andExpect(status().is(200))
-                .andReturn();
-
-        //then
-        Need needs1 = new Gson().fromJson(mvcResult.getResponse().getContentAsString(), Need.class);
-        assertThat(needs1).isNotNull();
-        assertThat(needs1.getId()).isEqualTo(need.getId());
-        assertThat(needs1.getTitle()).isEqualTo(need.getTitle());
-        assertThat(needs1.getDescription()).isEqualTo("test2@test2");
+                .andExpect(jsonPath("$.Id", is(2)))
+                .andExpect(jsonPath("$.Title", is("test22")))
+                .andExpect(jsonPath("$.Description", is("test22")));
     }
 
     @Test
-    @Transactional
     void shouldCreateNewNeed() throws Exception {
         //given
-        Need need = new Need();
-        need.setTitle("test3");
-        need.setDescription("test3@test3");
-        NeedDto needDto = needMapper.mapToNeedDto(need);
+        Need need = new Need(1L, "test3", "test3");
+        NeedDto needDto = new NeedDto(2L, "test33", "test33");
+        when(needMapper.mapToNeedDto(need)).thenReturn(needDto);
+        when(needMapper.mapToNeed(needDto)).thenReturn(need);
 
-        //when
         Gson gson = new Gson();
         String json = gson.toJson(needDto);
 
-        //Then
+        //when & then
         mockMvc.perform(post("/v1/needs").contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8")
                 .content(json))
@@ -110,38 +102,32 @@ public class NeedControllerTestSuite {
     }
 
     @Test
-    @Transactional
     void shouldUpdateNeed() throws Exception {
         //given
-        Need need = new Need();
-        need.setTitle("test4");
-        need.setDescription("test4@test4");
-        needRepository.save(need);
-
-        //when
-        Need need2 = new Need();
-        need2.setId(need.getId());
-        need2.setTitle("test44");
-        need2.setDescription("test44@test44");
-        NeedDto needDto2 = needMapper.mapToNeedDto(need2);
+        Need need = new Need(1L, "test4", "test4");
+        NeedDto needDto = new NeedDto(1L, "test44", "test44");
+        when(service.saveNeed(need)).thenReturn(need);
+        when(needMapper.mapToNeed(any(NeedDto.class))).thenReturn(need);
+        when(needMapper.mapToNeedDto(any(Need.class))).thenReturn(needDto);
 
         Gson gson2 = new Gson();
-        String json2 = gson2.toJson(needDto2);
+        String json2 = gson2.toJson(needDto);
 
-        //then
+        //when & then
         mockMvc.perform(put("/v1/needs").contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8")
                 .content(json2))
-                .andExpect(status().is(200));
+                .andExpect(status().is(200))
+                .andExpect(jsonPath("$.Id", is(1)))
+                .andExpect(jsonPath("$.Title", is("test44")))
+                .andExpect(jsonPath("$.Description", is("test44")));
     }
 
     @Test
-    @Transactional
     void shouldDeleteNeed() throws Exception {
-        Need need = new Need();
-        need.setTitle("test5");
-        need.setDescription("test5@test5");
-        needRepository.save(need);
+        Need need = new Need(1L, "test5", "test5");
+        when(service.saveNeed(need)).thenReturn(need);
+        service.saveNeed(need);
 
         //when & then
         mockMvc.perform(delete("/v1/needs/" + need.getId())

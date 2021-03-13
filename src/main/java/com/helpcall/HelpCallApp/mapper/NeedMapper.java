@@ -27,8 +27,7 @@ public class NeedMapper {
                 .map(needDto -> new Need(
                         needDto.getId(), needDto.getTitle(), needDto.getDescription(),
                         needDto.getLat(), needDto.getLon(), needDto.getEndTime(), needDto.getInstitution(),
-                        needDto.getVolunteers(), needDto.getNeedsBoards()
-                ))
+                        needDto.getVolunteers(), needDto.getNeedsBoards()))
                 .collect(Collectors.toList());
     }
 

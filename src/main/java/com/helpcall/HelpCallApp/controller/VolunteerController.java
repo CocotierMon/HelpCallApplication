@@ -27,7 +27,7 @@ public class VolunteerController {
         volunteerDbService.saveVolunteer(volunteerMapper.mapToVolunteer(volunteerDto));
     }
 
-    @Secured({"ROLE_VOLUNTEER", "ROLE_ADMIN"})
+ //   @Secured({"ROLE_VOLUNTEER", "ROLE_ADMIN"})
     @RequestMapping(method = RequestMethod.PUT, value = "/volunteers")
     public VolunteerDto updateVolunteer(@RequestBody VolunteerDto volunteerDto) {
         return volunteerMapper.mapToVolunteerDto(volunteerDbService.saveVolunteer(
@@ -45,7 +45,7 @@ public class VolunteerController {
         return volunteerMapper.mapToVolunteerDtoList(volunteerDbService.getAllVolunteers());
     }
 
-    @Secured({"ROLE_ADMIN"})
+   // @Secured({"ROLE_ADMIN"})
     @RequestMapping(method = RequestMethod.DELETE, value = "/volunteers/{id}")
     public void deleteVolunteerById(@PathVariable("id") Long id) {
         volunteerDbService.deleteVolunteerById(id);

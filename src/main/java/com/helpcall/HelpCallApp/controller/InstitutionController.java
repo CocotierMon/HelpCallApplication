@@ -27,7 +27,7 @@ public class InstitutionController {
         institutionDbService.saveInstitution(institutionMapper.mapToInstitution(institutionDto));
     }
 
-    @Secured({"ROLE_INSTITUTION", "ROLE_ADMIN"})
+  //  @Secured({"ROLE_INSTITUTION", "ROLE_ADMIN"})
     @RequestMapping(method = RequestMethod.PUT, value = "/institutions")
     public InstitutionDto updateInstitution(@RequestBody InstitutionDto institutionDto) {
         return institutionMapper.mapToInstitutionDto(institutionDbService.saveInstitution(
@@ -45,7 +45,7 @@ public class InstitutionController {
         return institutionMapper.mapToInstitutionDtoList(institutionDbService.getAllInstitutions());
     }
 
-    @Secured({"ROLE_ADMIN"})
+ //   @Secured({"ROLE_ADMIN"})
     @RequestMapping(method = RequestMethod.DELETE, value = "/institutions/{id}")
     public void deleteInstitutionById(@PathVariable("id") Long id) {
         institutionDbService.deleteInstitutionById(id);
