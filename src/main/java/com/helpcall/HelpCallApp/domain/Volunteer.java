@@ -47,4 +47,18 @@ public class Volunteer {
         this.name = name;
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "Volunteer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", lat='" + lat + '\'' +
+                ", lon='" + lon + '\'' +
+                ", description='" + description + '\'' +
+               // ", needs=" + needs +
+                '}';
+    }
 }

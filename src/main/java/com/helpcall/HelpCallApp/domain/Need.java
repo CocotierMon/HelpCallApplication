@@ -53,4 +53,19 @@ public class Need {
         this.title = title;
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "Need{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", lat='" + lat + '\'' +
+                ", lon='" + lon + '\'' +
+                ", endTime=" + endTime +
+               // ", institution=" + institution +
+                ", volunteers=" + volunteers +
+                ", needsBoards=" + needsBoards +
+                '}';
+    }
 }

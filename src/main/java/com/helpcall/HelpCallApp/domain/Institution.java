@@ -43,12 +43,27 @@ public class Institution{
     @Column(name = "isInstitution")
     private String isInstitution;
 
-    @OneToMany(targetEntity = Need.class, mappedBy = "institution", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "institution", targetEntity = Need.class, fetch = FetchType.LAZY)
     private List<Need> needs = new ArrayList<>();
 
     public Institution(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Institution{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", lat='" + lat + '\'' +
+                ", lon='" + lon + '\'' +
+                ", description='" + description + '\'' +
+                ", isInstitution='" + isInstitution + '\'' +
+                ", needs=" + needs +
+                '}';
     }
 }

@@ -1,5 +1,6 @@
 package com.helpcall.HelpCallApp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,26 +13,27 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class NeedDto {
 
     @JsonProperty("Id")
-    public Long id;
+    private Long id;
     @JsonProperty("Title")
-    public String title;
+    private String title;
     @JsonProperty("Description")
-    public String description;
+    private String description;
     @JsonProperty("Latitude")
-    public String lat;
+    private String lat;
     @JsonProperty("Longitude")
-    public String lon;
+    private String lon;
     @JsonProperty("EndTime")
-    public LocalDate endTime;
+    private LocalDate endTime;
     @JsonProperty("Institution")
-    public Institution institution;
+    private Institution institution;
     @JsonProperty("Volunteers")
-    public List<Volunteer> volunteers = new ArrayList<>();
+    private List<Volunteer> volunteers = new ArrayList<>();
     @JsonProperty("NeedsBoards")
-    public List<NeedsBoard> needsBoards = new ArrayList<>();
+    private List<NeedsBoard> needsBoards = new ArrayList<>();
 
     public NeedDto(Long id, String title, String description) {
         this.id = id;
