@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -43,8 +42,8 @@ public class Institution{
     @Column(name = "isInstitution")
     private String isInstitution;
 
-    @OneToMany(mappedBy = "institution", targetEntity = Need.class, fetch = FetchType.LAZY)
-    private List<Need> needs = new ArrayList<>();
+    @OneToMany(mappedBy = "institution", targetEntity = Need.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Need> needs;
 
     public Institution(Long id, String name, String email) {
         this.id = id;

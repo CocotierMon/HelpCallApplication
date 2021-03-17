@@ -2,7 +2,6 @@ package com.helpcall.HelpCallApp.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,7 +30,7 @@ public class VolunteerDto {
     @JsonProperty("Description")
     private String description;
     @JsonProperty("Needs")
-    private List<Need> needs = new ArrayList<>();
+    private List<NeedDto> needs = new ArrayList<>();
 
     public VolunteerDto(Long id, String name, String email) {
         this.id = id;

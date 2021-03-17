@@ -5,7 +5,6 @@ import com.helpcall.HelpCallApp.exceptions.InstitutionNotFoundException;
 import com.helpcall.HelpCallApp.mapper.InstitutionMapper;
 import com.helpcall.HelpCallApp.service.InstitutionDbService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,11 +24,13 @@ public class InstitutionController {
     @RequestMapping(method = RequestMethod.POST, value = "/institutions", consumes = APPLICATION_JSON_VALUE)
     public void createInstitution(@RequestBody InstitutionDto institutionDto) {
         institutionDbService.saveInstitution(institutionMapper.mapToInstitution(institutionDto));
+        System.out.println(institutionDto);
     }
 
   //  @Secured({"ROLE_INSTITUTION", "ROLE_ADMIN"})
     @RequestMapping(method = RequestMethod.PUT, value = "/institutions")
     public InstitutionDto updateInstitution(@RequestBody InstitutionDto institutionDto) {
+        System.out.println(institutionDto);
         return institutionMapper.mapToInstitutionDto(institutionDbService.saveInstitution(
                 institutionMapper.mapToInstitution(institutionDto)));
     }

@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @Transactional
-public class ManyToOneTestSuite {
+public class RelationsBetweenEntitiesTestSuite {
 
     @Mock
     InstitutionDbService institutionDbService;
@@ -37,11 +37,13 @@ public class ManyToOneTestSuite {
         Institution institution = new Institution();
         institution.setId(1L);
 
+        List<Need> needs = new ArrayList<>();
         Need need = new Need();
         need.setId(2L);
         need.setInstitution(institution);
+        needs.add(need);
 
-        institution.getNeeds().add(need);
+        institution.setNeeds(needs);
 
         when(institutionDbService.saveInstitution(institution)).thenReturn(institution);
         when(needDbService.saveNeed(need)).thenReturn(need);
@@ -64,12 +66,14 @@ public class ManyToOneTestSuite {
         volunteers.add(volunteer);
         volunteers.add(volunteer1);
 
+        List<Need> needs = new ArrayList<>();
         Need need = new Need();
         need.setId(2L);
         need.setVolunteers(volunteers);
+        needs.add(need);
 
-        volunteer.getNeeds().add(need);
-        volunteer1.getNeeds().add(need);
+        volunteer.setNeeds(needs);
+        volunteer1.setNeeds(needs);
 
         when(volunteerDbService.saveVolunteer(volunteer)).thenReturn(volunteer);
         when(volunteerDbService.saveVolunteer(volunteer1)).thenReturn(volunteer1);

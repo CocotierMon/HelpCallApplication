@@ -5,7 +5,6 @@ import com.helpcall.HelpCallApp.exceptions.VolunteerNotFoundException;
 import com.helpcall.HelpCallApp.mapper.VolunteerMapper;
 import com.helpcall.HelpCallApp.service.VolunteerDbService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

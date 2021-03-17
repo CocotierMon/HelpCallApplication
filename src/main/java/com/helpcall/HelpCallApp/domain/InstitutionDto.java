@@ -32,11 +32,26 @@ public class InstitutionDto {
     @JsonProperty("IsInstitution")
     private String isInstitution;
     @JsonProperty("Needs")
-    private List<Need> needs = new ArrayList<>();
+    private List<NeedDto> needs = new ArrayList<>();
 
     public InstitutionDto(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "InstitutionDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", lat='" + lat + '\'' +
+                ", lon='" + lon + '\'' +
+                ", description='" + description + '\'' +
+                ", isInstitution='" + isInstitution + '\'' +
+                ", needs=" + needs +
+                '}';
     }
 }

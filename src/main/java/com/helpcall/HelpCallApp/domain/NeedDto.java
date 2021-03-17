@@ -29,15 +29,27 @@ public class NeedDto {
     @JsonProperty("EndTime")
     private LocalDate endTime;
     @JsonProperty("Institution")
-    private Institution institution;
+    private InstitutionDto institution;
     @JsonProperty("Volunteers")
-    private List<Volunteer> volunteers = new ArrayList<>();
-    @JsonProperty("NeedsBoards")
-    private List<NeedsBoard> needsBoards = new ArrayList<>();
+    private List<VolunteerDto> volunteers = new ArrayList<>();
 
     public NeedDto(Long id, String title, String description) {
         this.id = id;
         this.title = title;
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "NeedDto{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", lat='" + lat + '\'' +
+                ", lon='" + lon + '\'' +
+                ", endTime=" + endTime +
+              //  ", institution=" + institution +
+                ", volunteers=" + volunteers +
+                '}';
     }
 }

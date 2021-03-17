@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -40,7 +39,7 @@ public class Volunteer {
 
     @ManyToMany
     @JoinColumn(name = "needs")
-    private List<Need> needs = new ArrayList<>();
+    private List<Need> needs;
 
     public Volunteer(Long id, String name, String email) {
         this.id = id;

@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -36,17 +35,13 @@ public class Need {
     @Column(name = "end_time")
     private LocalDate endTime;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "institution_id")
     private Institution institution;
 
     @ManyToMany
     @JoinColumn(name = "volunteers")
-    private List<Volunteer> volunteers = new ArrayList<>();
-
-    @ManyToMany
-    @JoinColumn(name = "needsboards")
-    private List<NeedsBoard> needsBoards = new ArrayList<>();
+    private List<Volunteer> volunteers;
 
     public Need(Long id, String title, String description) {
         this.id = id;
@@ -65,7 +60,6 @@ public class Need {
                 ", endTime=" + endTime +
                // ", institution=" + institution +
                 ", volunteers=" + volunteers +
-                ", needsBoards=" + needsBoards +
                 '}';
     }
 }
