@@ -37,14 +37,24 @@ public class Volunteer {
     @Column(name = "description")
     private String description;
 
-    @ManyToMany
-    @JoinColumn(name = "needs")
+    @ManyToMany(cascade = CascadeType.PERSIST)
+ //   @JoinColumn(name = "needs")
     private List<Need> needs;
 
     public Volunteer(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
+    }
+
+    public Volunteer(String name, String email, String password, String lat, String lon, String description, List<Need> needs) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.lat = lat;
+        this.lon = lon;
+        this.description = description;
+        this.needs = needs;
     }
 
     @Override

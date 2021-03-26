@@ -51,6 +51,26 @@ public class Institution{
         this.email = email;
     }
 
+    public Institution(String name, String email, String password, String lat, String lon, String description,
+                       String isInstitution, List<Need> needs) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.lat = lat;
+        this.lon = lon;
+        this.description = description;
+        this.isInstitution = isInstitution;
+        this.needs = needs;
+    }
+
+    public Institution(Long id, String name, String email, String lat, String lon) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.lat = lat;
+        this.lon = lon;
+    }
+
     @Override
     public String toString() {
         return "Institution{" +

@@ -39,6 +39,28 @@ public class NeedDto {
         this.description = description;
     }
 
+    public NeedDto(Long id, String title, String description, String lat, String lon, LocalDate endTime,
+                   List<VolunteerDto> volunteers) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.lat = lat;
+        this.lon = lon;
+        this.endTime = endTime;
+        this.volunteers = volunteers;
+    }
+
+    public NeedDto(Long id, String title, String description, String lat, String lon, LocalDate endTime,
+                   InstitutionDto institution) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.lat = lat;
+        this.lon = lon;
+        this.endTime = endTime;
+        this.institution = institution;
+    }
+
     @Override
     public String toString() {
         return "NeedDto{" +

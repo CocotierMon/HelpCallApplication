@@ -40,6 +40,18 @@ public class InstitutionDto {
         this.email = email;
     }
 
+    public InstitutionDto(Long id, String name, String email, String password, String lat, String lon,
+                          String description, String isInstitution) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.lat = lat;
+        this.lon = lon;
+        this.description = description;
+        this.isInstitution = isInstitution;
+    }
+
     @Override
     public String toString() {
         return "InstitutionDto{" +

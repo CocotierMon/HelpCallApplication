@@ -39,14 +39,45 @@ public class Need {
     @JoinColumn(name = "institution_id")
     private Institution institution;
 
-    @ManyToMany
-    @JoinColumn(name = "volunteers")
+    @ManyToMany(cascade = CascadeType.PERSIST)
+   // @JoinColumn(name = "volunteers")
     private List<Volunteer> volunteers;
 
     public Need(Long id, String title, String description) {
         this.id = id;
         this.title = title;
         this.description = description;
+    }
+
+    public Need(String title, String description, String lat, String lon, LocalDate endTime, Institution institution,
+                List<Volunteer> volunteers) {
+        this.title = title;
+        this.description = description;
+        this.lat = lat;
+        this.lon = lon;
+        this.endTime = endTime;
+        this.institution = institution;
+        this.volunteers = volunteers;
+    }
+
+    public Need(Long id, String title, String description, String lat, String lon, LocalDate endTime, List<Volunteer> volunteers) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.lat = lat;
+        this.lon = lon;
+        this.endTime = endTime;
+        this.volunteers = volunteers;
+    }
+
+    public Need(Long id, String title, String description, String lat, String lon, LocalDate endTime, Institution institution) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.lat = lat;
+        this.lon = lon;
+        this.endTime = endTime;
+        this.institution = institution;
     }
 
     @Override
