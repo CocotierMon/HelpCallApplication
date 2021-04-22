@@ -16,6 +16,12 @@ public class InstitutionMapper {
                 institutionDto.getIsInstitution(), mapToNeedList(institutionDto.getNeeds()));
     }
 
+    public Institution mapToInstitutionWriteMapper(final InstitutionDto institutionDto) {
+        return new Institution(institutionDto.getId(), institutionDto.getName(), institutionDto.getEmail(),
+                institutionDto.getPassword(), institutionDto.getLat(), institutionDto.getLon(), institutionDto.getDescription(),
+                institutionDto.getIsInstitution(), new ArrayList<>());
+    }
+
     public List<Need> mapToNeedList(List<NeedDto> needDtoList) {
         return needDtoList.stream()
                 .map(needDto -> new Need(
@@ -28,8 +34,7 @@ public class InstitutionMapper {
     public List<Volunteer> mapToVolunteerList(List<VolunteerDto> volunteerDtoList) {
         return volunteerDtoList.stream()
                 .map(volunteer -> new Volunteer(volunteer.getId(), volunteer.getName(), volunteer.getEmail(),
-                        volunteer.getPassword(), volunteer.getLat(), volunteer.getLon(), volunteer.getDescription(),
-                        new ArrayList<>()))
+                        volunteer.getLat(), volunteer.getLon()))
                 .collect(Collectors.toList());
     }
 
@@ -42,16 +47,14 @@ public class InstitutionMapper {
     public List<NeedDto> mapToNeedListDto(List<Need> needList) {
         return needList.stream()
                 .map(need -> new NeedDto(need.getId(), need.getTitle(), need.getDescription(),
-                        need.getLat(), need.getLon(), need.getEndTime(),
-                        mapToVolunteerDtoList(need.getVolunteers())))
+                        need.getLat(), need.getLon(), need.getEndTime()))
                 .collect(Collectors.toList());
     }
 
     public List<VolunteerDto> mapToVolunteerDtoList(List<Volunteer> volunteerList) {
         return volunteerList.stream()
                 .map(volunteerDto -> new VolunteerDto(volunteerDto.getId(), volunteerDto.getName(), volunteerDto.getEmail(),
-                        volunteerDto.getPassword(), volunteerDto.getLat(), volunteerDto.getLon(), volunteerDto.getDescription(),
-                        new ArrayList<>()))
+                        volunteerDto.getLat(), volunteerDto.getLon()))
                 .collect(Collectors.toList());
     }
 

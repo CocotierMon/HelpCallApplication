@@ -40,17 +40,6 @@ public class NeedDto {
     }
 
     public NeedDto(Long id, String title, String description, String lat, String lon, LocalDate endTime,
-                   List<VolunteerDto> volunteers) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.lat = lat;
-        this.lon = lon;
-        this.endTime = endTime;
-        this.volunteers = volunteers;
-    }
-
-    public NeedDto(Long id, String title, String description, String lat, String lon, LocalDate endTime,
                    InstitutionDto institution) {
         this.id = id;
         this.title = title;
@@ -59,6 +48,15 @@ public class NeedDto {
         this.lon = lon;
         this.endTime = endTime;
         this.institution = institution;
+    }
+
+    public NeedDto(Long id, String title, String description, String lat, String lon, LocalDate endTime) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.lat = lat;
+        this.lon = lon;
+        this.endTime = endTime;
     }
 
     @Override

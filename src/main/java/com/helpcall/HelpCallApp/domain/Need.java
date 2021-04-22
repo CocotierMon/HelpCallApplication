@@ -40,7 +40,6 @@ public class Need {
     private Institution institution;
 
     @ManyToMany(cascade = CascadeType.PERSIST)
-   // @JoinColumn(name = "volunteers")
     private List<Volunteer> volunteers;
 
     public Need(Long id, String title, String description) {
@@ -78,6 +77,15 @@ public class Need {
         this.lon = lon;
         this.endTime = endTime;
         this.institution = institution;
+    }
+
+    public Need(Long id, String title, String description, String lat, String lon, LocalDate endTime) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.lat = lat;
+        this.lon = lon;
+        this.endTime = endTime;
     }
 
     @Override

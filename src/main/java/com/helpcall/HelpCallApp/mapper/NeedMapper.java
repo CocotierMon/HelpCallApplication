@@ -61,7 +61,7 @@ public class NeedMapper {
     public List<NeedDto> mapToNeedListDto(List<Need> needList) {
         return needList.stream()
                 .map(need -> new NeedDto(need.getId(), need.getTitle(), need.getDescription(),
-                        need.getLat(), need.getLon(), need.getEndTime(), mapToInstitutionDto(need.getInstitution()),
+                        need.getLat(), need.getLon(), need.getEndTime(), new InstitutionDto(),
                         mapToVolunteerDtoList(need.getVolunteers())))
                 .collect(Collectors.toList());
     }

@@ -37,4 +37,12 @@ public class VolunteerDto {
         this.name = name;
         this.email = email;
     }
+
+    public VolunteerDto(Long id, String name, String email, String lat, String lon) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.lat = lat;
+        this.lon = lon;
+    }
 }
