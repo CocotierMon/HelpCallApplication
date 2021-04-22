@@ -1,5 +1,7 @@
 package com.helpcall.HelpCallApp.mapper;
 
+import com.helpcall.HelpCallApp.domain.Institution;
+import com.helpcall.HelpCallApp.domain.InstitutionDto;
 import com.helpcall.HelpCallApp.domain.Need;
 import com.helpcall.HelpCallApp.domain.NeedDto;
 import org.junit.jupiter.api.Test;
@@ -7,6 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,13 +25,19 @@ public class NeedMapperTestSuite {
     void testNeedMapper() {
 
         //given
-        Need need = new Need(1L, "test", "test");
-        Need need1 = new Need(2L, "test2", "test2@test2");
-        Need need2 = new Need(3L, "test3", "test3@test3");
+        Need need = new Need(1L, "test", "test", "latitude", "longitude",
+                LocalDate.now(), new Institution(), new ArrayList<>());
+        Need need1 = new Need(2L, "test2", "test2@test2", "latitude", "longitude",
+                LocalDate.now(), new Institution(), new ArrayList<>());
+        Need need2 = new Need(3L, "test3", "test3@test3", "latitude", "longitude",
+                LocalDate.now(), new Institution(), new ArrayList<>());
 
-        NeedDto needDto = new NeedDto(1L, "test2","test2@test2");
-        NeedDto needDto1 = new NeedDto(2L, "test2", "test2@test2");
-        NeedDto needDto2 = new NeedDto(3L, "test3", "test3@test3");
+        NeedDto needDto = new NeedDto(1L, "test2","test2@test2", "latitude", "longitude",
+                LocalDate.now(), new InstitutionDto(), new ArrayList<>());
+        NeedDto needDto1 = new NeedDto(2L, "test2", "test2@test2", "latitude", "longitude",
+                LocalDate.now(), new InstitutionDto(), new ArrayList<>());
+        NeedDto needDto2 = new NeedDto(3L, "test3", "test3@test3", "latitude", "longitude",
+                LocalDate.now(), new InstitutionDto(), new ArrayList<>());
 
         List<Need> needs = new ArrayList<>();
         List<Need> needs1;
