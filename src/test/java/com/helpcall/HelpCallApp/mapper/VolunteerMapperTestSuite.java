@@ -22,13 +22,19 @@ public class VolunteerMapperTestSuite {
     void testVolunteerMapper() {
 
         //given
-        Volunteer volunteer = new Volunteer(1L, "test", "test@test");
-        Volunteer volunteer1 = new Volunteer(2L, "test2", "test2@test2");
-        Volunteer volunteer2 = new Volunteer(3L, "test3", "test3@test3");
+        Volunteer volunteer = new Volunteer(1L, "test", "test@test", "password", "latitude",
+                "longitude", "description", new ArrayList<>());
+        Volunteer volunteer1 = new Volunteer(2L, "test2", "test2@test2", "password", "latitude",
+                "longitude", "description", new ArrayList<>());
+        Volunteer volunteer2 = new Volunteer(3L, "test3", "test3@test3", "password", "latitude",
+                "longitude", "description", new ArrayList<>());
 
-        VolunteerDto volunteerDto = new VolunteerDto(1L, "test2","test2@test2");
-        VolunteerDto volunteerDto1 = new VolunteerDto(2L, "test2", "test2@test2");
-        VolunteerDto volunteerDto2 = new VolunteerDto(3L, "test3", "test3@test3");
+        VolunteerDto volunteerDto = new VolunteerDto(1L, "test2","test2@test2", "password", "latitude",
+                "longitude", "description", new ArrayList<>());
+        VolunteerDto volunteerDto1 = new VolunteerDto(2L, "test2", "test2@test2", "password", "latitude",
+                "longitude", "description", new ArrayList<>());
+        VolunteerDto volunteerDto2 = new VolunteerDto(3L, "test3", "test3@test3", "password", "latitude",
+                "longitude", "description", new ArrayList<>());
 
         List<Volunteer> volunteers = new ArrayList<>();
         List<Volunteer> volunteers1;
