@@ -103,7 +103,5 @@ public class Demo {
         institutionDbService.saveInstitution(institution1);
         institutionDbService.saveInstitution(institution2);
         institutionDbService.saveInstitution(institution3);
-
-
     }
 }
