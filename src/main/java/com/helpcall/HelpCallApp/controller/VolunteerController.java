@@ -23,7 +23,7 @@ public class VolunteerController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/volunteers", consumes = APPLICATION_JSON_VALUE)
     public void createVolunteer(@RequestBody VolunteerDto volunteerDto) {
-        volunteerDbService.saveVolunteer(volunteerMapper.mapToVolunteer(volunteerDto));
+        volunteerDbService.saveVolunteer(volunteerMapper.mapToVolunteerWriteMapper(volunteerDto));
     }
 
  //   @Secured({"ROLE_VOLUNTEER", "ROLE_ADMIN"})

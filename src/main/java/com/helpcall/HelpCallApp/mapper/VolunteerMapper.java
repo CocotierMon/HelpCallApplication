@@ -3,6 +3,7 @@ package com.helpcall.HelpCallApp.mapper;
 import com.helpcall.HelpCallApp.domain.*;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +14,12 @@ public class VolunteerMapper {
         return new Volunteer(volunteerDto.getId(), volunteerDto.getName(), volunteerDto.getEmail(),
                 volunteerDto.getPassword(), volunteerDto.getLat(), volunteerDto.getLon(), volunteerDto.getDescription(),
                 mapToNeedList(volunteerDto.getNeeds()));
+    }
+
+    public Volunteer mapToVolunteerWriteMapper(final VolunteerDto volunteerDto) {
+        return new Volunteer(volunteerDto.getId(), volunteerDto.getName(), volunteerDto.getEmail(),
+                volunteerDto.getPassword(), volunteerDto.getLat(), volunteerDto.getLon(), volunteerDto.getDescription(),
+                new ArrayList<>());
     }
 
     public List<Need> mapToNeedList(List<NeedDto> needDtoList) {

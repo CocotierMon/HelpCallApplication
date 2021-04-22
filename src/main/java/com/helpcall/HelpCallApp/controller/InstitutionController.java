@@ -28,8 +28,7 @@ public class InstitutionController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/institutions", consumes = APPLICATION_JSON_VALUE)
     public void createInstitution(@RequestBody InstitutionDto institutionDto) {
-        institutionDbService.saveInstitution(institutionMapper.mapToInstitution(institutionDto));
-        System.out.println(institutionDto);
+        institutionDbService.saveInstitution(institutionMapper.mapToInstitutionWriteMapper(institutionDto));
     }
 
   //  @Secured({"ROLE_INSTITUTION", "ROLE_ADMIN"})
@@ -37,7 +36,7 @@ public class InstitutionController {
     public InstitutionDto updateInstitution(@RequestBody InstitutionDto institutionDto) {
         System.out.println(institutionDto);
         return institutionMapper.mapToInstitutionDto(institutionDbService.saveInstitution(
-                institutionMapper.mapToInstitutionWriteMapper(institutionDto)));
+                institutionMapper.mapToInstitution(institutionDto)));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/institutions/{id}")
