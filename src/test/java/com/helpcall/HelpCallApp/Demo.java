@@ -32,7 +32,7 @@ public class Demo {
                 new ArrayList<>());
         Institution institution1 = new Institution("Dom samotnej matki", "domdlamam@domdlamam.pl", "domdlamam",
                 "51.82813964710642", "19.30160522460938", "Oaza dla samotnych matek w kryzysie", "true", new ArrayList<>());
-        Institution institution2 = new Institution("Rodzina zastępcze", "ddziecka@ddziecka.pl", "ddziecka",
+        Institution institution2 = new Institution("Rodzina zastępcza", "ddziecka@ddziecka.pl", "ddziecka",
                 "51.819651601869644", "19.52407836914063", "Specjalistyczna rodzina zastępcza", "false", new ArrayList<>());
         Institution institution3 = new Institution("Katarzyna", "kasia@kasia", "kasia",
                 "51.86716405856181", "19.40322875976563", "Jestem osobą niepełnosprawną, z ograniczeniami w zakresie " +
