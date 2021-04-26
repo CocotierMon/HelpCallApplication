@@ -17,8 +17,15 @@ public class NeedMapper {
     }
 
     public Institution mapToInstitution(final InstitutionDto institutionDto) {
-        return new Institution(institutionDto.getId(), institutionDto.getName(), institutionDto.getEmail(),
-                institutionDto.getLat(), institutionDto.getLon());
+        return new Institution(institutionDto.getId(), institutionDto.getName(), institutionDto.getDescription(),
+                institutionDto.getEmail(), institutionDto.getPassword(),
+                institutionDto.getLat(), institutionDto.getLon(), institutionDto.getIsInstitution(),
+                mapToNeedList(institutionDto.getNeeds()));
+    }
+
+    public Need mapToNeedWriteModel(final NeedDto needDto) {
+        return new Need(needDto.getId(), needDto.getTitle(), needDto.getDescription(),
+                needDto.getLat(), needDto.getLon(), needDto.getEndTime());
     }
 
     public List<Volunteer> mapToVolunteerList(List<VolunteerDto> volunteerDtoList) {
@@ -33,6 +40,11 @@ public class NeedMapper {
         return new NeedDto(need.getId(), need.getTitle(), need.getDescription(),
                 need.getLat(), need.getLon(), need.getEndTime(), mapToInstitutionDto(need.getInstitution()),
                 mapToVolunteerDtoList(need.getVolunteers()));
+    }
+
+    public NeedDto mapToNeedDtoWrite(final Need need) {
+        return new NeedDto(need.getId(), need.getTitle(), need.getDescription(),
+                need.getLat(), need.getLon(), need.getEndTime(), mapToInstitutionDto(need.getInstitution()));
     }
 
     public InstitutionDto mapToInstitutionDto(final Institution institution) {
@@ -61,7 +73,7 @@ public class NeedMapper {
     public List<NeedDto> mapToNeedListDto(List<Need> needList) {
         return needList.stream()
                 .map(need -> new NeedDto(need.getId(), need.getTitle(), need.getDescription(),
-                        need.getLat(), need.getLon(), need.getEndTime(), new InstitutionDto(),
+                        need.getLat(), need.getLon(), need.getEndTime(), mapToInstitutionDto(need.getInstitution()),
                         mapToVolunteerDtoList(need.getVolunteers())))
                 .collect(Collectors.toList());
     }

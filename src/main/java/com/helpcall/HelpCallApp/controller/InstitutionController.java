@@ -2,6 +2,7 @@ package com.helpcall.HelpCallApp.controller;
 
 import com.helpcall.HelpCallApp.domain.Institution;
 import com.helpcall.HelpCallApp.domain.InstitutionDto;
+import com.helpcall.HelpCallApp.domain.Need;
 import com.helpcall.HelpCallApp.domain.NeedDto;
 import com.helpcall.HelpCallApp.exceptions.InstitutionNotFoundException;
 import com.helpcall.HelpCallApp.mapper.InstitutionMapper;
@@ -25,6 +26,8 @@ public class InstitutionController {
     private InstitutionMapper institutionMapper;
     @Autowired
     private NeedMapper needMapper;
+    @Autowired
+    private NeedController needController;
 
     @RequestMapping(method = RequestMethod.POST, value = "/institutions", consumes = APPLICATION_JSON_VALUE)
     public void createInstitution(@RequestBody InstitutionDto institutionDto) {
@@ -36,7 +39,7 @@ public class InstitutionController {
     public InstitutionDto updateInstitution(@RequestBody InstitutionDto institutionDto) {
         System.out.println(institutionDto);
         return institutionMapper.mapToInstitutionDto(institutionDbService.saveInstitution(
-                institutionMapper.mapToInstitution(institutionDto)));
+                institutionMapper.mapToInstitutionWriteMapper(institutionDto)));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/institutions/{id}")
@@ -57,10 +60,12 @@ public class InstitutionController {
     }
 
     //  @Secured({"ROLE_INSTITUTION"})
-    @RequestMapping(method = RequestMethod.POST, value = "/institutions/addNeed/{id}")
-    public void addNeed(@RequestBody NeedDto needDto, @PathVariable("id") Long id) {
-        Institution institution = institutionDbService.getInstitution(id).get();
-        institutionDbService.getInstitution(id).get().addNeed(needMapper.mapToNeed(needDto));
-        updateInstitution(institutionMapper.mapToInstitutionDto(institution));
+    @RequestMapping(method = RequestMethod.PUT, value = "/institutions/addNeed/{id}")
+    public void addNeed(@RequestBody NeedDto needDto, @PathVariable("id") Long id) throws InstitutionNotFoundException {
+        Institution institution = institutionDbService.getInstitution(id).orElseThrow(InstitutionNotFoundException::new);
+        Need need = needMapper.mapToNeedWriteModel(needDto);
+        need.setInstitution(institution);
+        institution.getNeeds().add(need);
+        needController.createNeed(needMapper.mapToNeedDtoWrite(need));
     }
 }

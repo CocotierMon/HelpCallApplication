@@ -35,11 +35,11 @@ public class Need {
     @Column(name = "end_time")
     private LocalDate endTime;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "institution_id")
     private Institution institution;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Volunteer> volunteers;
 
     public Need(Long id, String title, String description) {

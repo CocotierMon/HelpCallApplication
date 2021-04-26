@@ -49,10 +49,6 @@ public class Institution{
         this.id = id;
     }
 
-    public void addNeed(Need need) {
-        needs.add(need);
-    }
-
     public Institution(Long id, String name, String email) {
         this.id = id;
         this.name = name;

@@ -24,7 +24,7 @@ public class NeedController {
     // @Secured({"ROLE_INSTITUTION", "ROLE_ADMIN"})
     @RequestMapping(method = RequestMethod.POST, value = "/needs", consumes = APPLICATION_JSON_VALUE)
     public void createNeed(@RequestBody NeedDto needDto) {
-        needDbService.saveNeed(needMapper.mapToNeed(needDto));
+        needDbService.saveNeed(needMapper.mapToNeedWriteModel(needDto));
     }
 
    // @Secured({"ROLE_INSTITUTION", "ROLE_ADMIN"})
