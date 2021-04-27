@@ -72,10 +72,10 @@ public class InstitutionController {
 
         needDbService.saveNeed(need);
     }
-//
-//    @RequestMapping(method = RequestMethod.GET, value = "/institutions/needs/{id}")
-//    public List<NeedDto> getInstitutionsNeeds(@PathVariable("id") Long id) throws InstitutionNotFoundException {
-//        return institutionMapper.mapToInstitutionDto(institutionDbService.getInstitution(id)
-//                .orElseThrow(InstitutionNotFoundException::new)).getNeeds();
-//    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/institutions/needs/{id}")
+    public List<NeedDto> getInstitutionsNeeds(@PathVariable("id") Long id) throws InstitutionNotFoundException {
+        return institutionMapper.mapToInstitutionDto(institutionDbService.getInstitution(id)
+                .orElseThrow(InstitutionNotFoundException::new)).getNeeds();
+    }
 }
