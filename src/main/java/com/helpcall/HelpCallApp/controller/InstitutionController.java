@@ -64,8 +64,8 @@ public class InstitutionController {
     public void addNeed(@RequestBody NeedDto needDto, @PathVariable("id") Long id) throws InstitutionNotFoundException {
         Institution institution = institutionDbService.getInstitution(id).orElseThrow(InstitutionNotFoundException::new);
         Need need = needMapper.mapToNeedWriteModel(needDto);
-        need.setInstitution(institution);
         institution.getNeeds().add(need);
+        need.setInstitution(institution);
         needController.createNeed(needMapper.mapToNeedDtoWrite(need));
     }
 }
