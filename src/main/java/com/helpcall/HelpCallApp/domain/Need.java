@@ -35,7 +35,7 @@ public class Need {
     @Column(name = "end_time")
     private LocalDate endTime;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "institution_id")
     private Institution institution;
 

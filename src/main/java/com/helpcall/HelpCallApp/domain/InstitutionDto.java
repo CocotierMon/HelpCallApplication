@@ -24,9 +24,9 @@ public class InstitutionDto {
     @JsonProperty("Password")
     private String password;
     @JsonProperty("Latitude")
-    private String lat;
+    private double lat;
     @JsonProperty("Longitude")
-    private String lon;
+    private double lon;
     @JsonProperty("Description")
     private String description;
     @JsonProperty("IsInstitution")
@@ -40,7 +40,7 @@ public class InstitutionDto {
         this.email = email;
     }
 
-    public InstitutionDto(Long id, String name, String email, String password, String lat, String lon,
+    public InstitutionDto(Long id, String name, String email, String password, double lat, double lon,
                           String description, String isInstitution) {
         this.id = id;
         this.name = name;

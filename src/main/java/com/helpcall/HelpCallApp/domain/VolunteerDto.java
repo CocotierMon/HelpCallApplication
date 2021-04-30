@@ -24,9 +24,9 @@ public class VolunteerDto {
     @JsonProperty("Password")
     private String password;
     @JsonProperty("Latitude")
-    private String lat;
+    private double lat;
     @JsonProperty("Longitude")
-    private String lon;
+    private double lon;
     @JsonProperty("Description")
     private String description;
     @JsonProperty("Needs")
@@ -38,7 +38,7 @@ public class VolunteerDto {
         this.email = email;
     }
 
-    public VolunteerDto(Long id, String name, String email, String lat, String lon) {
+    public VolunteerDto(Long id, String name, String email, double lat, double lon) {
         this.id = id;
         this.name = name;
         this.email = email;

@@ -17,10 +17,9 @@ public class NeedMapper {
     }
 
     public Institution mapToInstitution(final InstitutionDto institutionDto) {
-        return new Institution(institutionDto.getId(), institutionDto.getName(), institutionDto.getDescription(),
-                institutionDto.getEmail(), institutionDto.getPassword(),
-                institutionDto.getLat(), institutionDto.getLon(), institutionDto.getIsInstitution(),
-                mapToNeedList(institutionDto.getNeeds()));
+        return new Institution(institutionDto.getId(), institutionDto.getName(), institutionDto.getEmail(),
+                institutionDto.getPassword(), institutionDto.getLat(), institutionDto.getLon(), institutionDto.getDescription(),
+                institutionDto.getIsInstitution(), mapToNeedList(institutionDto.getNeeds()));
     }
 
     public Need mapToNeedWriteModel(final NeedDto needDto) {

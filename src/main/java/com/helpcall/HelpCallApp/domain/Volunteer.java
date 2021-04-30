@@ -29,10 +29,10 @@ public class Volunteer {
     private String password;
 
     @Column(name = "latitude")
-    private String lat;
+    private double lat;
 
     @Column(name = "longitude")
-    private String lon;
+    private double lon;
 
     @Column(name = "description")
     private String description;
@@ -46,7 +46,7 @@ public class Volunteer {
         this.email = email;
     }
 
-    public Volunteer(String name, String email, String password, String lat, String lon, String description, List<Need> needs) {
+    public Volunteer(String name, String email, String password, double lat, double lon, String description, List<Need> needs) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -56,7 +56,7 @@ public class Volunteer {
         this.needs = needs;
     }
 
-    public Volunteer(Long id, String name, String email, String password, String lat, String lon, String description) {
+    public Volunteer(Long id, String name, String email, String password, double lat, double lon, String description) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -66,7 +66,7 @@ public class Volunteer {
         this.description = description;
     }
 
-    public Volunteer(Long id, String name, String email, String lat, String lon) {
+    public Volunteer(Long id, String name, String email, double lat, double lon) {
         this.id = id;
         this.name = name;
         this.email = email;
