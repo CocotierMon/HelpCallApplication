@@ -23,9 +23,9 @@ public class NeedDto {
     @JsonProperty("Description")
     private String description;
     @JsonProperty("Latitude")
-    private String lat;
+    private double lat;
     @JsonProperty("Longitude")
-    private String lon;
+    private double lon;
     @JsonProperty("EndTime")
     private LocalDate endTime;
     @JsonProperty("Institution")
@@ -39,7 +39,7 @@ public class NeedDto {
         this.description = description;
     }
 
-    public NeedDto(Long id, String title, String description, String lat, String lon, LocalDate endTime,
+    public NeedDto(Long id, String title, String description, double lat, double lon, LocalDate endTime,
                    InstitutionDto institution) {
         this.id = id;
         this.title = title;
@@ -50,7 +50,7 @@ public class NeedDto {
         this.institution = institution;
     }
 
-    public NeedDto(Long id, String title, String description, String lat, String lon, LocalDate endTime) {
+    public NeedDto(Long id, String title, String description, double lat, double lon, LocalDate endTime) {
         this.id = id;
         this.title = title;
         this.description = description;

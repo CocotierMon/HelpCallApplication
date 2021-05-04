@@ -27,10 +27,10 @@ public class Need {
     private String description;
 
     @Column(name = "latitude")
-    private String lat;
+    private double lat;
 
     @Column(name = "longitude")
-    private String lon;
+    private double lon;
 
     @Column(name = "end_time")
     private LocalDate endTime;
@@ -48,7 +48,7 @@ public class Need {
         this.description = description;
     }
 
-    public Need(String title, String description, String lat, String lon, LocalDate endTime, Institution institution,
+    public Need(String title, String description, double lat, double lon, LocalDate endTime, Institution institution,
                 List<Volunteer> volunteers) {
         this.title = title;
         this.description = description;
@@ -59,7 +59,7 @@ public class Need {
         this.volunteers = volunteers;
     }
 
-    public Need(Long id, String title, String description, String lat, String lon, LocalDate endTime, List<Volunteer> volunteers) {
+    public Need(Long id, String title, String description, double lat, double lon, LocalDate endTime, List<Volunteer> volunteers) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -69,7 +69,7 @@ public class Need {
         this.volunteers = volunteers;
     }
 
-    public Need(Long id, String title, String description, String lat, String lon, LocalDate endTime, Institution institution) {
+    public Need(Long id, String title, String description, double lat, double lon, LocalDate endTime, Institution institution) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -79,7 +79,7 @@ public class Need {
         this.institution = institution;
     }
 
-    public Need(Long id, String title, String description, String lat, String lon, LocalDate endTime) {
+    public Need(Long id, String title, String description, double lat, double lon, LocalDate endTime) {
         this.id = id;
         this.title = title;
         this.description = description;

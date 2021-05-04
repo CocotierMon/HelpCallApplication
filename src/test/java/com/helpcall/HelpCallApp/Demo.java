@@ -38,21 +38,21 @@ public class Demo {
                 51.86716405856181, 19.40322875976563, "Jestem osobą niepełnosprawną, z ograniczeniami w zakresie " +
                 "poruszania się", "false", new ArrayList<>());
 
-        Volunteer volunteer = new Volunteer("Staszek", "staszek@staszek.pl", "fistaszek", "51.798424491278745",
-                "19.390869140625004", "Kocham psy i koty, każdą wolną chwilę spędzałbym opiekując sie zwierzętami", new ArrayList<>());
-        Volunteer volunteer1 = new Volunteer("Ania", "ania@ania.pl", "aniaania", "51.781435604431195", "19.34280395507813",
+        Volunteer volunteer = new Volunteer("Staszek", "staszek@staszek.pl", "fistaszek", 51.798424491278745,
+                19.390869140625004, "Kocham psy i koty, każdą wolną chwilę spędzałbym opiekując sie zwierzętami", new ArrayList<>());
+        Volunteer volunteer1 = new Volunteer("Ania", "ania@ania.pl", "aniaania", 51.781435604431195, 19.34280395507813,
                 "Umiem opiekować się osobami niepełnosprawnymi, mogę pomóc w opiece nad bliską Ci osobą", new ArrayList<>());
-        Volunteer volunteer2 = new Volunteer("Kazik", "kazik@kazik.pl", "kaziu", "51.79078028408291", "19.432067871093754",
+        Volunteer volunteer2 = new Volunteer("Kazik", "kazik@kazik.pl", "kaziu", 51.79078028408291, 19.432067871093754,
                 "Mam dużo wolnego czasu i jestem złotą rączką", new ArrayList<>());
 
         Need need = new Need("Karma dla młodych psów", "Potrzebujemy 200kg karmy dla młodych psów, do 1 roku, sterylizowanych",
-                "51.565973367806954", "19.514465332031254", LocalDate.now(), new Institution(), new ArrayList<>());
+                51.565973367806954, 19.514465332031254, LocalDate.now(), new Institution(), new ArrayList<>());
         Need need1 = new Need("Ubrania dla mam i dzieci", "Brakuje nam ubranek dla dzieciw rozmiarach od 74 do 104 oraz ubrań dla mam w rozmiarach 36 - 40",
-                "51.82813964710642", "19.30160522460938", LocalDate.now(), new Institution(), new ArrayList<>());
+                51.82813964710642, 19.30160522460938, LocalDate.now(), new Institution(), new ArrayList<>());
         Need need2 = new Need("Nauka gry na gitarze", "Jedno z naszych podopiecznych marzy, żeby nauczyć się grać na gitrze. " +
-                "Szukamy osoby, która chciałaby nauczyć go podstaw", "51.819651601869644", "19.52407836914063", LocalDate.now(), new Institution(),
+                "Szukamy osoby, która chciałaby nauczyć go podstaw", 51.819651601869644, 19.52407836914063, LocalDate.now(), new Institution(),
                 new ArrayList<>());
-        Need need3 = new Need("Spacery", "Chciałabym mieć towarzysza spacerów", "51.86716405856181", "19.40322875976563", LocalDate.now(),
+        Need need3 = new Need("Spacery", "Chciałabym mieć towarzysza spacerów", 51.86716405856181, 19.40322875976563, LocalDate.now(),
                 new Institution(), new ArrayList<>());
 
         List<Need> needList = new ArrayList<>();
