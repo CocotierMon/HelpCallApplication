@@ -42,12 +42,6 @@ public class Need {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Volunteer> volunteers;
 
-    public Need(Long id, String title, String description) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-    }
-
     public Need(String title, String description, double lat, double lon, LocalDate endTime, Institution institution,
                 List<Volunteer> volunteers) {
         this.title = title;

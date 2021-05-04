@@ -16,6 +16,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -65,7 +66,7 @@ public class VolunteerControllerTestSuite {
     @Test
     void shouldGetVolunteerById() throws Exception {
         //given
-        Volunteer vol = new Volunteer(1L, "test2", "test2");
+        Volunteer vol = new Volunteer(1L, "test2", "test2", 51.01, 51.01);
         Long id = vol.getId();
         VolunteerDto volunteerDto = new VolunteerDto(2L, "test22", "test22");
         when(service.getVolunteer(id)).thenReturn(java.util.Optional.of(vol));
@@ -86,7 +87,7 @@ public class VolunteerControllerTestSuite {
     @Test
     void shouldCreateNewVolunteer() throws Exception {
         //given
-        Volunteer vol = new Volunteer(1L, "test3", "test3");
+        Volunteer vol = new Volunteer(1L, "test3", "test3", 51.01, 51.01);
         VolunteerDto volunteerDto = new VolunteerDto(2L, "test33", "test33");
         when(volunteerMapper.mapToVolunteerDto(vol)).thenReturn(volunteerDto);
         when(volunteerMapper.mapToVolunteer(volunteerDto)).thenReturn(vol);
@@ -104,7 +105,7 @@ public class VolunteerControllerTestSuite {
     @Test
     void shouldUpdateVolunteer() throws Exception {
         //given
-        Volunteer vol = new Volunteer(1L, "test4", "test4");
+        Volunteer vol = new Volunteer(1L, "test4", "test4", 51.01, 51.01);
         VolunteerDto volunteerDto = new VolunteerDto(1L, "test44", "test44");
         when(service.saveVolunteer(vol)).thenReturn(vol);
         when(volunteerMapper.mapToVolunteer(any(VolunteerDto.class))).thenReturn(vol);
@@ -125,7 +126,7 @@ public class VolunteerControllerTestSuite {
 
     @Test
     void shouldDeleteVolunteer() throws Exception {
-        Volunteer vol = new Volunteer(1L, "test5", "test5");
+        Volunteer vol = new Volunteer(1L, "test5", "test5", 51.01, 51.01);
         when(service.saveVolunteer(vol)).thenReturn(vol);
         service.saveVolunteer(vol);
 

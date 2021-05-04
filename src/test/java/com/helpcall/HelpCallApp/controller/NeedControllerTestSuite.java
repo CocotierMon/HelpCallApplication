@@ -16,6 +16,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -65,7 +66,7 @@ public class NeedControllerTestSuite {
     @Test
     void shouldGetNeedById() throws Exception {
         //given
-        Need need = new Need(1L, "test2", "test2");
+        Need need = new Need(1L, "test2", "test2", 51.01, 51.01, LocalDate.now());
         Long id = need.getId();
         NeedDto needDto = new NeedDto(2L, "test22", "test22");
         when(service.getNeed(id)).thenReturn(java.util.Optional.of(need));
@@ -86,7 +87,7 @@ public class NeedControllerTestSuite {
     @Test
     void shouldCreateNewNeed() throws Exception {
         //given
-        Need need = new Need(1L, "test3", "test3");
+        Need need = new Need(1L, "test3", "test3", 51.01, 51.01, LocalDate.now());
         NeedDto needDto = new NeedDto(2L, "test33", "test33");
         when(needMapper.mapToNeedDto(need)).thenReturn(needDto);
         when(needMapper.mapToNeed(needDto)).thenReturn(need);
@@ -104,7 +105,7 @@ public class NeedControllerTestSuite {
     @Test
     void shouldUpdateNeed() throws Exception {
         //given
-        Need need = new Need(1L, "test4", "test4");
+        Need need = new Need(1L, "test4", "test4", 51.01, 51.01, LocalDate.now());
         NeedDto needDto = new NeedDto(1L, "test44", "test44");
         when(service.saveNeed(need)).thenReturn(need);
         when(needMapper.mapToNeed(any(NeedDto.class))).thenReturn(need);
@@ -125,7 +126,7 @@ public class NeedControllerTestSuite {
 
     @Test
     void shouldDeleteNeed() throws Exception {
-        Need need = new Need(1L, "test5", "test5");
+        Need need = new Need(1L, "test5", "test5", 51.01, 51.01, LocalDate.now());
         when(service.saveNeed(need)).thenReturn(need);
         service.saveNeed(need);
 

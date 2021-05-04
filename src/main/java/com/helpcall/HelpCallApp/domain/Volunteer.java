@@ -40,12 +40,6 @@ public class Volunteer {
     @ManyToMany(cascade = CascadeType.PERSIST)
     private List<Need> needs;
 
-    public Volunteer(Long id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
-
     public Volunteer(String name, String email, String password, double lat, double lon, String description, List<Need> needs) {
         this.name = name;
         this.email = email;
@@ -54,16 +48,6 @@ public class Volunteer {
         this.lon = lon;
         this.description = description;
         this.needs = needs;
-    }
-
-    public Volunteer(Long id, String name, String email, String password, double lat, double lon, String description) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.lat = lat;
-        this.lon = lon;
-        this.description = description;
     }
 
     public Volunteer(Long id, String name, String email, double lat, double lon) {

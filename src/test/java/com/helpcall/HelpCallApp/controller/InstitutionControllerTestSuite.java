@@ -64,7 +64,8 @@ public class InstitutionControllerTestSuite {
     @Test
     void shouldGetInstitutionById() throws Exception {
         //given
-        Institution inst = new Institution(1L, "test2", "test2");
+        Institution inst = new Institution(1L, "test2", "test2", 51.01,
+                51.01);
         Long id = inst.getId();
         InstitutionDto institutionDto = new InstitutionDto(2L, "test22", "test22");
         when(service.getInstitution(id)).thenReturn(java.util.Optional.of(inst));
@@ -85,7 +86,7 @@ public class InstitutionControllerTestSuite {
     @Test
     void shouldCreateNewInstitution() throws Exception {
         //given
-        Institution inst = new Institution(1L, "test3", "test3");
+        Institution inst = new Institution(1L, "test3", "test3", 51.01, 51.01);
         InstitutionDto institutionDto = new InstitutionDto(2L, "test33", "test33");
 
         when(institutionMapper.mapToInstitutionDto(inst)).thenReturn(institutionDto);
@@ -104,7 +105,7 @@ public class InstitutionControllerTestSuite {
     @Test
     void shouldUpdateInstitution() throws Exception {
         //given
-        Institution inst = new Institution(1L, "test4", "test4");
+        Institution inst = new Institution(1L, "test4", "test4", 51.01, 51.01);
         InstitutionDto institutionDto = new InstitutionDto(1L, "test44", "test44");
         when(service.saveInstitution(inst)).thenReturn(inst);
         when(institutionMapper.mapToInstitutionWriteMapper(any(InstitutionDto.class))).thenReturn(inst);
@@ -125,7 +126,7 @@ public class InstitutionControllerTestSuite {
 
     @Test
     void shouldDeleteInstitution() throws Exception {
-        Institution inst = new Institution(1L, "test5", "test5");
+        Institution inst = new Institution(1L, "test5", "test5", 51.01, 51.01);
         when(service.saveInstitution(inst)).thenReturn(inst);
         service.saveInstitution(inst);
 

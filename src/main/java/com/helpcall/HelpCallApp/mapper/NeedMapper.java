@@ -41,11 +41,6 @@ public class NeedMapper {
                 mapToVolunteerDtoList(need.getVolunteers()));
     }
 
-    public NeedDto mapToNeedDtoWrite(final Need need) {
-        return new NeedDto(need.getId(), need.getTitle(), need.getDescription(),
-                need.getLat(), need.getLon(), need.getEndTime(), mapToInstitutionDto(need.getInstitution()));
-    }
-
     public InstitutionDto mapToInstitutionDto(final Institution institution) {
         return new InstitutionDto(institution.getId(), institution.getName(), institution.getEmail(),
                 institution.getPassword(), institution.getLat(), institution.getLon(), institution.getDescription(),

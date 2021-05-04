@@ -51,13 +51,6 @@ public class InstitutionMapper {
                 .collect(Collectors.toList());
     }
 
-    public List<VolunteerDto> mapToVolunteerDtoList(List<Volunteer> volunteerList) {
-        return volunteerList.stream()
-                .map(volunteerDto -> new VolunteerDto(volunteerDto.getId(), volunteerDto.getName(), volunteerDto.getEmail(),
-                        volunteerDto.getLat(), volunteerDto.getLon()))
-                .collect(Collectors.toList());
-    }
-
     public List<Institution> mapToInstitutionList(List<InstitutionDto> institutionDtoList) {
         return institutionDtoList.stream()
                 .map(institution -> new Institution(institution.getId(), institution.getName(), institution.getEmail(),

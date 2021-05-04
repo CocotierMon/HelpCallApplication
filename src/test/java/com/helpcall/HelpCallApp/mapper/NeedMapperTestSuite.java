@@ -25,19 +25,13 @@ public class NeedMapperTestSuite {
     void testNeedMapper() {
 
         //given
-        Need need = new Need(1L, "test", "test", "latitude", "longitude",
-                LocalDate.now(), new Institution(), new ArrayList<>());
-        Need need1 = new Need(2L, "test2", "test2@test2", "latitude", "longitude",
-                LocalDate.now(), new Institution(), new ArrayList<>());
-        Need need2 = new Need(3L, "test3", "test3@test3", "latitude", "longitude",
-                LocalDate.now(), new Institution(), new ArrayList<>());
+        Need need = new Need(1L, "test", "test", 51.01, 51.01, LocalDate.now(), new Institution(), new ArrayList<>());
+        Need need1 = new Need(2L, "test2", "test2@test2", 51.01, 51.01, LocalDate.now(), new Institution(), new ArrayList<>());
+        Need need2 = new Need(3L, "test3", "test3@test3", 51.01, 51.01, LocalDate.now(), new Institution(), new ArrayList<>());
 
-        NeedDto needDto = new NeedDto(1L, "test2","test2@test2", "latitude", "longitude",
-                LocalDate.now(), new InstitutionDto(), new ArrayList<>());
-        NeedDto needDto1 = new NeedDto(2L, "test2", "test2@test2", "latitude", "longitude",
-                LocalDate.now(), new InstitutionDto(), new ArrayList<>());
-        NeedDto needDto2 = new NeedDto(3L, "test3", "test3@test3", "latitude", "longitude",
-                LocalDate.now(), new InstitutionDto(), new ArrayList<>());
+        NeedDto needDto = new NeedDto(1L, "test2","test2@test2", 51.01, 51.01, LocalDate.now(), new InstitutionDto(), new ArrayList<>());
+        NeedDto needDto1 = new NeedDto(2L, "test2", "test2@test2", 51.01, 51.01, LocalDate.now(), new InstitutionDto(), new ArrayList<>());
+        NeedDto needDto2 = new NeedDto(3L, "test3", "test3@test3", 51.01, 51.01, LocalDate.now(), new InstitutionDto(), new ArrayList<>());
 
         List<Need> needs = new ArrayList<>();
         List<Need> needs1;
