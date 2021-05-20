@@ -8,7 +8,7 @@ The purpose of the application was to connect volunteers with people in need of 
 Link to frontend app: https://github.com/CocotierMon/HelpCallAppFrontend
 
 Launch instructions:
-1. Launch MySQL database and provige your login data
+1. Launch MySQL database and provide your login data
 2. Run HelpCallApp application
 3. Run the frontend application
 4. The view will launch automatically.
